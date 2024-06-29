@@ -1,0 +1,30 @@
+
+networks:
+  app:
+    driver: bridge
+
+services:
+  php:
+    build: ./
+    volumes:
+      - ./src/:/var/www/html
+    ports:
+      - "8080:80"
+    networks:
+      - app
+    depends_on:
+      - mysql
+    links:
+      - mysql
+
+  mysql:
+    image: mysql:8.0
+    volumes:
+      - ./mysql:/var/lib/mysql
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: framework
+    networks:
+      - app
