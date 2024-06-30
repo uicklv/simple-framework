@@ -1,0 +1,17 @@
+{
+    "name": "uicklv/simple-framework",
+    "description": "simple php framework",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        },
+        "files": ["app/config.php"]
+    },
+    "authors": [
+        {
+            "name": "uicklv"
+        }
+    ],
+    "require": {}
+}
